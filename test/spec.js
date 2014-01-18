@@ -14,6 +14,8 @@ describe('valid-password', function() {
   it('is too simple', function() {
     assert(valid('asdfg').hint, 'too simple');
     assert(valid('abcdef').hint, 'too simple');
+    assert(valid('zlkjh').hint, 'too simple');
+    assert(valid('gfdsa').hint, 'too simple');
   });
 
   it('is simple world', function() {
