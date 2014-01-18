@@ -10,10 +10,19 @@ function byStep(raw) {
   return true;
 }
 
-var ASDF = 'qwertyuiopasdfghjklzxcvbnm';
+var ASDF = ['qwertyuiop', 'asdfghjkl', 'zxcvbnm'];
 
 function isAsdf(raw) {
-  return ~ASDF.indexOf(raw);
+  var reverse = raw.split('').reverse().join('');
+  var asdf = ASDF.join('');
+  if (~asdf.indexOf(raw) || ~asdf.indexOf(reverse)) {
+    return true;
+  }
+  asdf = ASDF.reverse().join('');
+  if (~asdf.indexOf(raw) || ~asdf.indexOf(reverse)) {
+    return true;
+  }
+  return false;
 }
 
 function strength(raw) {
