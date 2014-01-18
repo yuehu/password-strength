@@ -36,4 +36,11 @@ describe('password-strength', function() {
   it('is strong', function() {
     assert(valid('bar.baz.Foo').strength, 'strong');
   });
+
+  it('can async', function(done) {
+    valid('bar.baz.Foo', function(res) {
+      assert(res.strength, 'strong');
+      done();
+    });
+  });
 });

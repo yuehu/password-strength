@@ -67,36 +67,35 @@ function strength(raw) {
 /**
  * Export interface.
  */
-function valid(raw) {
+function valid(raw, cb) {
+  var ret;
   if (raw.length < valid.min) {
-    return {
+    ret = {
       valid: false,
       strength: 'simple',
       hint: 'too short'
     };
-  }
-
-  if (~valid.words.indexOf(raw)) {
-    return {
+  } else if (~valid.words.indexOf(raw)) {
+    ret = {
       valid: false,
       strength: 'simple',
       hint: 'simple word'
     };
-  }
-
-  if (byStep(raw) || isAsdf(raw)) {
-    return {
+  } else if (byStep(raw) || isAsdf(raw)) {
+    ret = {
       valid: false,
       strength: 'simple',
       hint: 'too simple'
     };
+  } else {
+    ret = {
+      valid: true,
+      strength: strength(raw),
+      hint: null
+    };
   }
-
-  return {
-    valid: true,
-    strength: strength(raw),
-    hint: null
-  };
+  cb && cb(ret);
+  return ret;
 }
 
 // min length of the password
