@@ -17,8 +17,8 @@ function isAsdf(raw) {
 }
 
 function strength(raw) {
-  if (raw.length < 8) {
-    return 'medium';
+  if (raw.length < 6) {
+    return 'simple';
   }
 
   var types = 0;
@@ -35,11 +35,15 @@ function strength(raw) {
   // marks
   if (/[^0-9a-zA-Z]/.test(raw)) types += 1;
 
+  if (raw.length < 8 && types === 1) {
+    return 'simple';
+  }
+
   return types > 2 ? 'strong': 'medium';
 }
 
 function valid(raw) {
-  if (raw.length < valid.length) {
+  if (raw.length < valid.min) {
     return {
       valid: false,
       strength: 'simple',
@@ -70,5 +74,7 @@ function valid(raw) {
   };
 }
 
-valid.length = 4;
+valid.min = 4;
 valid.words = [];
+
+module.exports = valid;

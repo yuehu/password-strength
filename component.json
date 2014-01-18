@@ -3,7 +3,11 @@
   "repo": "yuehu/valid-password",
   "description": "Check if a password is strong enough.",
   "version": "0.0.1",
-  "keywords": [],
+  "keywords": [
+    "password",
+    "form",
+    "strength"
+  ],
   "dependencies": {},
   "development": {},
   "license": "MIT",
