@@ -1,4 +1,14 @@
+/**
+ * Password Strength
+ *
+ * Check if a password is trong enough.
+ *
+ * Copyright (c) 2014 by Hsiaoming Yang.
+ */
 
+/**
+ * If the password is alphabet step by step.
+ */
 function byStep(raw) {
   // e.g. 123456, abcde
   var delta = raw.charCodeAt(1) - raw.charCodeAt(0);
@@ -12,6 +22,9 @@ function byStep(raw) {
 
 var ASDF = ['qwertyuiop', 'asdfghjkl', 'zxcvbnm'];
 
+/**
+ * If the password is in the order on keyboard.
+ */
 function isAsdf(raw) {
   var reverse = raw.split('').reverse().join('');
   var asdf = ASDF.join('');
@@ -51,6 +64,9 @@ function strength(raw) {
   return types > 2 ? 'strong': 'medium';
 }
 
+/**
+ * Export interface.
+ */
 function valid(raw) {
   if (raw.length < valid.min) {
     return {
@@ -83,7 +99,9 @@ function valid(raw) {
   };
 }
 
+// min length of the password
 valid.min = 4;
+// password can't be these words
 valid.words = [];
 
 module.exports = valid;

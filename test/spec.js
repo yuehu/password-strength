@@ -1,4 +1,4 @@
-describe('valid-password', function() {
+describe('password-strength', function() {
   var valid = require('..');
 
   function assert(a, b) {

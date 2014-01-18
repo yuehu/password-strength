@@ -1,5 +1,5 @@
 
-# valid-password
+# password-strength
 
   Check if a password is strong enough.
 
@@ -7,7 +7,7 @@
 
   Install with [component(1)](http://component.io):
 
-    $ component install yuehu/valid-password
+    $ component install yuehu/password-strength
 
 ## API
 
