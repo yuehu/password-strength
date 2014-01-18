@@ -1,0 +1,14 @@
+{
+  "name": "valid-password",
+  "repo": "yuehu/valid-password",
+  "description": "Check if a password is strong enough.",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {},
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}
